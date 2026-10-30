@@ -1,0 +1,35 @@
+.grps { container: grp / inline-size; }
+.grp { --cc: var(--k8); border: 1px solid var(--line); border-radius: 14px; background: var(--raised); }
+.grp + .grp { margin-top: 8px; }
+.grp.open { border-color: color-mix(in srgb, var(--cc) 40%, var(--line)); }
+.grp-h { width: 100%; border: 0; background: transparent; text-align: left; display: grid; grid-template-columns: 36px minmax(0, 1fr) auto 20px;
+  grid-template-areas: 't n v c' 'b b b b'; gap: 4px 12px; align-items: center; padding: 12px 14px; border-radius: 14px; color: inherit; }
+.grp-h:hover { background: var(--control); }
+.grp-h .tile { grid-area: t; }
+.grp-n { grid-area: n; min-width: 0; }
+.grp-n b { display: block; color: var(--fg); font-weight: 500; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.grp-n .meta { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.grp-v { grid-area: v; text-align: right; }
+.grp-v b { display: block; color: var(--fg); font-weight: 500; font-size: 16px; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; white-space: nowrap; }
+.grp-v .meta { white-space: nowrap; }
+.grp-c { grid-area: c; width: 20px; height: 20px; color: var(--muted); transition: transform 0.2s; }
+.grp.open .grp-c { transform: rotate(180deg); }
+.grp-h .gbar { grid-area: b; margin-top: 6px; }
+.grp.empty .grp-n b { color: var(--fg2); font-size: 14px; }
+.grp.empty:not(.open) .grp-h { padding-top: 8px; padding-bottom: 8px; }
+.grp.empty:not(.open) .gbar { display: none; }
+.grp.empty:not(.open) .tile { width: 28px; height: 28px; font-size: 14px; border-radius: 9px; }
+.grp.empty .grp-v b { color: var(--muted); font-size: 14px; }
+.grp-b { padding: 0 14px 12px; border-top: 1px solid var(--line); }
+.grp-empty { padding: 12px 0 4px; font-size: 13px; color: var(--muted); }
+.grp-f { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-top: 10px; margin-top: 4px; border-top: 1px dashed var(--line-strong); }
+.grp-f .edit { display: flex; align-items: center; gap: 6px; margin-left: auto; min-width: 0; }
+.grp-f .edit .inp { width: 180px; height: 34px; }
+@media (pointer: coarse), (max-width: 720px) { .grp-f .edit .inp { height: 44px; } }
+@container grp (max-width: 700px) {
+  .grp-h { padding: 12px; column-gap: 10px; }
+  .grp-b { padding: 0 12px 12px; }
+  .grp-f .edit { margin-left: 0; width: 100%; }
+  .grp-f .edit .inp { flex: 1; width: auto; }
+  .grp-f > .btn { width: 100%; }
+}
