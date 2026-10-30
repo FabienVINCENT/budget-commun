@@ -1,0 +1,59 @@
+/* Tokens (repris de la maquette v2). Toutes les couleurs passent par ces variables. */
+:root,
+[data-theme='sombre'] {
+  --bg: #09090b;
+  --card: #161619;
+  --raised: #1c1c20;
+  --fg: #f4f4f5;
+  --fg2: #cfcfd4;
+  --muted: #a3a3ad;
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.13);
+  --track: rgba(255, 255, 255, 0.09);
+  --control: rgba(255, 255, 255, 0.06);
+  --control-hover: rgba(255, 255, 255, 0.1);
+  --accent: #8ab4ff;
+  --on-accent: #0a0f1a;
+  --pos: #5ee0a0;
+  --neg: #ff7a7a;
+  --warn: #f5c26b;
+  --focus: #8ab4ff;
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 6px 16px rgba(0, 0, 0, 0.35);
+  --backdrop: rgba(0, 0, 0, 0.6);
+  /* Personnes : ronds (avatars), teintes vives */
+  --p1: #8ab4ff; --p2: #f5b85a; --p3: #e879c9; --p4: #4fd1c5;
+  --p5: #b4a0ff; --p6: #a8d672; --p7: #ff8f70; --p8: #d4d4d8;
+  /* Catégories : palette à part, tons sourds (les personnes ont les tons vifs) et formes carrées */
+  --k1: #86b59c; --k2: #cdb46e; --k3: #74a9b8; --k4: #c98ea2;
+  --k5: #a196c6; --k6: #c79677; --k7: #a5b07c; --k8: #9e9b93;
+  color-scheme: dark;
+}
+
+[data-theme='clair'] {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --raised: #f4f6fa;
+  --fg: #0f172a;
+  --fg2: #334155;
+  --muted: #4a5568;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-strong: rgba(0, 0, 0, 0.14);
+  --track: rgba(0, 0, 0, 0.08);
+  --control: rgba(0, 0, 0, 0.05);
+  --control-hover: rgba(0, 0, 0, 0.08);
+  --accent: #3b6cf6;
+  --on-accent: #ffffff;
+  --pos: #15803d;
+  --neg: #dc2626;
+  --warn: #b45309;
+  --focus: #3b6cf6;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 12px 32px rgba(16, 24, 40, 0.08);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(16, 24, 40, 0.06);
+  --backdrop: rgba(15, 23, 42, 0.45);
+  --p1: #3b6cf6; --p2: #b45309; --p3: #c026d3; --p4: #0f8a80;
+  --p5: #6d28d9; --p6: #4d7c0f; --p7: #d9480f; --p8: #475569;
+  --k1: #4b8167; --k2: #8f7330; --k3: #3f7484; --k4: #9a5a6f;
+  --k5: #685d92; --k6: #925f42; --k7: #67723c; --k8: #75726b;
+  color-scheme: light;
+}
