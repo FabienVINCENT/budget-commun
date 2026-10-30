@@ -1,0 +1,37 @@
+/* Ligne de charge : grille complète en large, ligne compacte + détails au toucher en étroit. */
+.clist { list-style: none; margin: 0; padding: 0; }
+.chead, .cedit { display: grid; grid-template-columns: 36px minmax(0, 1fr) 108px 120px 90px 172px 36px; gap: 10px; align-items: center; }
+.chead { font-size: 12px; color: var(--muted); padding: 10px 0 2px; }
+.chead span:nth-child(3), .chead span:nth-child(5) { text-align: right; }
+.crow { padding: 8px 0; border-top: 1px solid var(--line); }
+.chead + .clist .crow:first-child { border-top: 0; }
+.cedit { grid-template-areas: 't l m f e r d'; }
+.cedit .t { grid-area: t; } .cedit .l { grid-area: l; } .cedit .m { grid-area: m; } .cedit .f { grid-area: f; }
+.cedit .e { grid-area: e; text-align: right; } .cedit .r { grid-area: r; } .cedit .d { grid-area: d; }
+.cedit .e b { display: block; color: var(--fg); font-weight: 500; white-space: nowrap; }
+.cedit .e .meta { display: none; }
+.cedit .over { grid-column: 1 / -1; }
+.csum { display: none; }
+.over { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 10px 12px; background: var(--control); border-radius: 12px; font-size: 13px; }
+.over label { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.over .over-n { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.over .inp-wrap { width: 84px; }
+.over > .pill { flex-basis: 100%; justify-content: center; }
+@media (pointer: coarse) { .chead, .cedit { grid-template-columns: 36px minmax(0, 1fr) 108px 120px 90px 172px 44px; } }
+
+@container grp (max-width: 700px) {
+  .chead { display: none; }
+  .crow { padding: 0; }
+  .csum { display: grid; grid-template-columns: minmax(0, 1fr) auto 20px; align-items: center; gap: 10px; width: 100%; min-height: 48px;
+    padding: 6px 2px; border: 0; background: transparent; text-align: left; color: inherit; border-radius: 10px; }
+  .csum:hover { background: var(--control); }
+  .csum-l { color: var(--fg); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .csum-m { text-align: right; line-height: 1.25; min-width: 0; }
+  .csum-m b { display: block; color: var(--fg); font-weight: 500; white-space: nowrap; }
+  .csum-m .meta { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 46vw; }
+  .csum .chev { width: 20px; height: 20px; color: var(--muted); transition: transform 0.2s; }
+  .crow.exp .csum .chev { transform: rotate(180deg); }
+  .crow:not(.exp) .cedit { display: none; }
+  .cedit { grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr) 44px; grid-template-areas: 't l l d' 'm m f f' 'r r r r'; gap: 8px; padding: 4px 0 12px; }
+  .cedit .e { display: none; }
+}
